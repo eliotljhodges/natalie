@@ -1,0 +1,380 @@
+/* =========================================================
+   Natalie Hodges — site styles
+   A clean, literary replica of the original Squarespace look:
+   minimal black-on-white palette, refined serif type,
+   centered header with the author's name as the title.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --bg: #000000;
+  --ink: #f4f1ea;
+  --ink-soft: #b3aea4;
+  --rule: #2c2c2c;
+  --link: #f4f1ea;
+  --link-hover: #c9b78f;        /* warm muted gold on hover */
+  --accent: #c9b78f;
+  --maxw: 820px;
+  --maxw-wide: 1080px;
+  --serif-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --serif-body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif-body);
+  font-size: 20px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244,241,234,0.3);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover { color: var(--link-hover); border-color: var(--link-hover); }
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  border: none;
+}
+
+/* =========================================================
+   Header / Navigation
+   ========================================================= */
+.site-header {
+  text-align: center;
+  padding: 2.6rem 1.5rem 1.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-title {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 0.04em;
+  margin: 0 0 1.1rem;
+  line-height: 1.05;
+}
+
+.site-title a {
+  border-bottom: none;
+  color: var(--ink);
+}
+.site-title a:hover { color: var(--ink); }
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.site-nav a {
+  font-family: var(--serif-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: none;
+  color: var(--ink-soft);
+  padding-bottom: 2px;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+}
+
+/* =========================================================
+   Layout
+   ========================================================= */
+main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3.4rem 1.5rem 2rem;
+}
+
+main.wide { max-width: var(--maxw-wide); }
+
+.page-title {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 0 0 2.4rem;
+}
+
+h2, h3, h4 {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h3 { font-size: 1.7rem; margin: 2.4rem 0 1rem; }
+h4 {
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 2.2rem 0 0.8rem;
+  color: var(--ink);
+}
+
+p { margin: 0 0 1.2rem; }
+
+.lead { font-size: 1.12rem; }
+
+.center { text-align: center; }
+
+.subtitle {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  text-align: center;
+  color: var(--ink-soft);
+  margin: -1.4rem 0 2.4rem;
+  font-weight: 500;
+}
+
+.caption {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.6rem 0;
+}
+
+/* ---------- Buttons / link rows ---------- */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.btn {
+  font-family: var(--serif-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* ---------- Two-column book layout (cover left, text right) ---------- */
+.book-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2.6rem;
+  margin: 1rem 0 2rem;
+}
+.book-layout .cover {
+  flex: 0 0 300px;
+  max-width: 300px;
+  margin: 0;
+}
+.book-layout .cover img { margin: 0; }
+.book-layout .content {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+.book-layout .content > :first-child { margin-top: 0; }
+/* Center-aligned blocks shouldn't force-center inside the column */
+.book-layout .content .praise,
+.book-layout .content .button-row { margin-left: 0; margin-right: 0; }
+.book-layout .content .praise { text-align: left; }
+.book-layout .content .button-row { justify-content: flex-start; }
+
+@media (max-width: 640px) {
+  .book-layout { gap: 1.6rem; }
+  .book-layout .cover {
+    flex-basis: auto;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .book-layout .content .praise { text-align: center; }
+  .book-layout .content .button-row { justify-content: center; }
+}
+
+/* ---------- Home hero (large cover, praise spread to the right) ---------- */
+.home-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 3.5rem;
+  margin: 1rem 0 2.5rem;
+}
+.home-hero .cover {
+  flex: 0 0 460px;
+  max-width: 460px;
+  margin: 0;
+}
+.home-hero .cover img { margin: 0; }
+.home-hero .praise {
+  flex: 1 1 320px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  margin: 0;
+  max-width: none;
+  padding: 0.5rem 0;
+}
+.home-hero .praise p {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  line-height: 1.25;
+  margin: 0;
+}
+.home-hero .praise p strong { font-weight: 600; }
+.home-hero .praise .source { font-style: italic; }
+
+@media (max-width: 760px) {
+  .home-hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .home-hero .cover { flex-basis: auto; max-width: 360px; }
+  .home-hero .praise {
+    text-align: center;
+    justify-content: flex-start;
+    gap: 1.4rem;
+  }
+}
+
+/* ---------- Home hero ---------- */
+.hero-cover {
+  max-width: 420px;
+  margin: 0 auto 2rem;
+}
+
+.praise {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 640px;
+}
+.praise p {
+  font-family: var(--serif-display);
+  font-size: 1.35rem;
+  margin: 0.4rem 0;
+}
+.praise .source { font-style: italic; }
+
+/* ---------- Book page ---------- */
+.book-cover { max-width: 380px; margin: 2.4rem auto; }
+
+.praise-list blockquote {
+  margin: 0 0 1.8rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--rule);
+  font-size: 1.05rem;
+}
+.praise-list cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- News & Events ---------- */
+.news-section { margin-bottom: 2.6rem; }
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-list li {
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.02rem;
+}
+.news-list li:last-child { border-bottom: none; }
+
+/* ---------- About ---------- */
+.about-photo { max-width: 460px; margin: 0 auto 1.6rem; }
+
+/* ---------- Contact ---------- */
+.contact-block { text-align: center; }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  padding: 2.4rem 1.5rem 3rem;
+  margin-top: 3rem;
+}
+.site-footer .footer-link {
+  font-family: var(--serif-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: none;
+  color: var(--ink-soft);
+}
+.site-footer .footer-link:hover { color: var(--ink); }
+.site-footer .copyright {
+  display: block;
+  margin-top: 1.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #9a958c;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 600px) {
+  body { font-size: 18px; }
+  .site-nav ul { gap: 1rem 1.1rem; }
+  .site-nav a { font-size: 0.82rem; letter-spacing: 0.1em; }
+  main { padding-top: 2.4rem; }
+}
